@@ -10,20 +10,22 @@ import java.util.List;
  *
  * @author carlosmamut1
  */
-public class TouristicStrategy implements RouteStrategy{
-    private List<String> attractions;
+import java.util.List;
 
-    public TouristicStrategy(List<String> attractions) {
+public class TouristicStrategy implements RouteStrategy {
+    private List<Attraction> attractions;
+
+    public TouristicStrategy(List<Attraction> attractions) {
         this.attractions = attractions;
     }
 
     @Override
     public void buildRoute(String start, String end) {
         System.out.println("Building a *touristic* route from " + start + " to " + end);
-        System.out.println("Visiting attractions along the way:");
-        for (String attraction : attractions) {
+        System.out.println("You will visit these attractions along the way:");
+        for (Attraction attraction : attractions) {
             System.out.println(" - " + attraction);
         }
     }
-    
 }
+

@@ -10,6 +10,8 @@ package navigatoraplication;
  */
 import java.util.*;
 
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
         NavigatorAplication app = new NavigatorAplication(new WalkingStrategy());
@@ -23,7 +25,11 @@ public class Main {
         app.setRouteStrategy(new PublicTransportStrategy(schedules, stations));
         app.buildRoute("Station A", "Station B");
 
-        List<String> attractions = Arrays.asList("Old Town", "City Park", "Art Gallery");
+        List<Attraction> attractions = Arrays.asList(
+            new Attraction("Old Town", "Downtown", "Historic center full of colonial buildings"),
+            new Attraction("City Park", "North Side", "Large green park ideal for a walk"),
+            new Attraction("Art Gallery", "Main Avenue", "Modern art exhibitions and café")
+        );
         app.setRouteStrategy(new TouristicStrategy(attractions));
         app.buildRoute("Hotel", "Beach");
     }
